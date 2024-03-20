@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/components/app_textfield.dart';
 import 'package:flutter_application_5/components/mainBottomBar.dart';
 import 'package:flutter_application_5/pages/users_list.dart';
 import 'package:flutter_application_5/pages/main_page.dart';
@@ -20,9 +21,9 @@ class LoginPage extends StatelessWidget {
                   const Text("Hello, welcome back", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
                   const Text("Login please"),
                   Spacer(),
-                  const TextField(decoration: InputDecoration(hintText: "Username", border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(12))), filled: true, fillColor: Color.fromARGB(167, 125, 189, 242))),
+                  const AppTextField(hint: "Username"),
                   SizedBox(height: 20,),
-                  const TextField(decoration: InputDecoration(hintText: "Password", border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(12))), filled: true, fillColor: Color.fromARGB(167, 125, 189, 242))),
+                  const AppTextField(hint: "Password"),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(onPressed: () {
@@ -77,7 +78,7 @@ class LoginPage extends StatelessWidget {
                       TextButton(onPressed: () {}, style: TextButton.styleFrom(foregroundColor: Colors.amber), child: Text("Sign up", style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline),))
                     ],
                   ),
-                  const TextField(decoration: InputDecoration(hintText: "Username", border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(12))), filled: true, fillColor: Color.fromARGB(167, 125, 189, 242))),
+                  AppTextField(hint: "Username2"),
                   Spacer()
                 ],
                         ),
