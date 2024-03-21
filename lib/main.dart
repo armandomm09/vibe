@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 29, 116, 237),
         ),
       ),
-      home: LoginPage(),
+      home: MainPage(),
       routes: AppRoutes.map
       
     );
