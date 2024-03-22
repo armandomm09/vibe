@@ -19,7 +19,7 @@ class PostItem extends StatelessWidget {
               Text(user, style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationColor: Color.fromARGB(255, 0, 0, 0)),)
             ], 
           ),
-          Image.asset("/Users/Armando09/DART/flutter_application_5/assets/components/postImage.png", ),
+          Image.asset("assets/images/artphoto.JPG", width: 300,),
           Text("Hola, esto es una foto de muchos postes en el desierto pero esta nevado", style: AppText.subtitle2,)
         ],
       ),
