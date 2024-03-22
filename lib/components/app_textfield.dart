@@ -3,11 +3,15 @@ import 'package:flutter_application_5/styles/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   final String hint;
-  const AppTextField({super.key, required this.hint});
+  final int maxLines;
+  const AppTextField({super.key, required this.hint, this.maxLines = 1});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: TextInputType.multiline,
+      minLines: 1,
+      maxLines: maxLines,
       decoration: InputDecoration(
        // hintText: hint, 
         labelText: hint,
@@ -16,6 +20,6 @@ class AppTextField extends StatelessWidget {
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: Colors.transparent)
       ),  
-      filled: true, fillColor: AppColors.fieldColor));
+      filled: true, fillColor: AppColors.persianGreen));
   }
 }

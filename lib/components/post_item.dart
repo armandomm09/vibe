@@ -16,7 +16,7 @@ class PostItem extends StatelessWidget {
             children: [
               Image.asset("assets/images/user.png", width: 40, height: 40,),
               SizedBox(width: 10,),
-              Text(user, style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationColor: Colors.white),)
+              Text(user, style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationColor: Color.fromARGB(255, 0, 0, 0)),)
             ], 
           ),
           Image.asset("/Users/Armando09/DART/flutter_application_5/assets/components/postImage.png", ),

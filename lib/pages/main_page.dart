@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/components/mainBottomBar.dart';
+import 'package:flutter_application_5/pages/add_story.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/users_list.dart';
+import 'package:flutter_application_5/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -25,10 +27,9 @@ class _MainPageState extends State<MainPage> {
             currentIndex = value;
           });
         }),
-      appBar: AppBar(
-        title: const Text("Nav Container"),
-      ),
-      body: pages[currentIndex.index]
+      //appBar: AppBar(title: const Text("Nav Container"),),
+      body: pages[currentIndex.index],
+      extendBody: true,
     );
   }
 }
@@ -36,7 +37,7 @@ class _MainPageState extends State<MainPage> {
 final pages = [
   PostsPage(),
   Center(child: Text("CHAT PAGE"),),
-  Center(child: Text("ADD POST PAGE"),),
+  AddPost(),
   Center(child: Text("LIKES PAGE"),),
   ProfilePage()
 ];
@@ -63,7 +64,7 @@ class MyBottomNavigation extends StatelessWidget {
             top: 17,
             child: Container(
               height: 70,
-              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              decoration: BoxDecoration(color: AppColors.extraTone, borderRadius: BorderRadius.circular(20)),
               child: Row(
                 children: [
                   Expanded(child: IconButton(
@@ -109,7 +110,7 @@ class MyBottomNavigation extends StatelessWidget {
                 width: 64,
                 height: 64,
                 decoration: BoxDecoration(
-                  color: Colors.amber,
+                  color: AppColors.extraTone,
                   shape: BoxShape.circle
                 ),
                 child: Icon(Icons.add, size: 40, weight: 100, color: Colors.black,),

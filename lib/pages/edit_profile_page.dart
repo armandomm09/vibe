@@ -26,7 +26,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void initState() {
     super.initState();
-    birthday = DateTime(2000);
+    birthday = DateTime.now();
   }
 
   @override
@@ -73,7 +73,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     context: context,
                     initialDate: birthday,
                     firstDate: DateTime(0),
-                    lastDate: DateTime(2025),
+                    lastDate: DateTime.now(),
                   );
                   if (newDate != null) {
                     setState(() {

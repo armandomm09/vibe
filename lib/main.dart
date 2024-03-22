@@ -6,6 +6,7 @@ import 'package:flutter_application_5/pages/main_page.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/users_list.dart';
 import 'package:flutter_application_5/pages/login_page.dart';
+import 'package:flutter_application_5/styles/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 2, 63, 161),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 29, 116, 237),
-        ),
+        scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        appBarTheme: AppBarTheme(backgroundColor: Color.fromARGB(255, 29, 43, 237),),
       ),
-      home: MainPage(),
+      home: LoginPage(),
       routes: AppRoutes.map
       
     );

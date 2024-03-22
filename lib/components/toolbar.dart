@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/styles/app_colors.dart';
 import 'package:flutter_application_5/styles/text_styles.dart';
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget{
@@ -9,10 +10,11 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: AppColors.persianGreen,
         title: Text(title, style: AppText.header1),
         actions: actions,
         centerTitle: false,
+        shadowColor: AppColors.mint,
       );
   }
   
