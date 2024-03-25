@@ -1,16 +1,31 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/components/app_textfield.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_application_5/pages/main_page.dart';
 
 enum LoginState{
     successfull, wrongInput, serverError
   }
-
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
 
-  
+  signInWithGoogle() async {
+
+    GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    AuthCredential credential =  GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    UserCredential user = await FirebaseAuth.instance.signInWithCredential(credential);
+    print(user.user?.displayName);
+  }
 
   Future<LoginState> logIn(String username, String password) async {
     try {
@@ -162,7 +177,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                AppTextField(hint: "Username2"), // Puedes quitar esto si no necesitas un controlador aquí
+                AppTextField(hint: "Username2"), 
                 Spacer(),
               ],
             ),

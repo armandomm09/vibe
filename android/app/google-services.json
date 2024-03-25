@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435318308339",
+    "project_id": "domini-35e8e",
+    "storage_bucket": "domini-35e8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435318308339:android:ccb156a40c6a2569b16686",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435318308339-tr0l9s3bfhempr97501m6ibuq6u8c4a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMrU_LKjcDlbC9BtiVezJHB2ur_VDAjic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435318308339-tr0l9s3bfhempr97501m6ibuq6u8c4a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
