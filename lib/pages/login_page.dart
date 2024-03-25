@@ -1,53 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/auths/google_auth.dart';
+import 'package:flutter_application_5/auths/reqres_auth.dart';
 import 'package:flutter_application_5/components/app_textfield.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_application_5/pages/main_page.dart';
 
-enum LoginState{
-    successfull, wrongInput, serverError
-  }
+
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
 
-  signInWithGoogle() async {
+  
 
-    GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-
-    AuthCredential credential =  GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    UserCredential user = await FirebaseAuth.instance.signInWithCredential(credential);
-    print(user.user?.displayName);
-  }
-
-  Future<LoginState> logIn(String username, String password) async {
-    try {
-      var response = await http.post(
-        Uri.parse('https://reqres.in/api/login'),
-        body: {
-          "email": username,
-          "password": password,
-        },
-      );
-
-      if (response.statusCode == 200) {
-
-        return LoginState.successfull;
-      } else {
-        return LoginState.wrongInput;
-      }
-    } catch (e) {
-      print(e.toString());
-      return LoginState.serverError;
-    }
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +60,7 @@ class LoginPage extends StatelessWidget {
                       print(passwordController.text);
 
                       // Realizar inicio de sesión
-                      LoginState success = await logIn(
+                      LoginState success = await ReqresAuthService.logInWithReqres(
                         usernameController.text,
                         passwordController.text,
                       );
@@ -136,8 +103,32 @@ class LoginPage extends StatelessWidget {
                 ),
                 Spacer(),
                 ElevatedButton(
-                  onPressed: () {
-                    print("Google pressed");
+                  onPressed: () async {
+                    LoginState success = await GoogleAuthService.signInWithGoogle();
+
+                      // Verificar si el inicio de sesión fue exitoso
+                      if (success == LoginState.successfull) {
+                        // Si fue exitoso, navegar a la pantalla MainPage
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => MainPage(),
+                          ),
+                        );
+                      } else if(success == LoginState.wrongInput){
+                        // Si no fue exitoso, mostrar mensaje de error
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.red,
+                            content: Text('Incorrect username or password.'),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Something went wrong, please try again.'),
+                          ),
+                        );
+                      }
                   },
                   style: ElevatedButton.styleFrom(),
                   child: Row(
