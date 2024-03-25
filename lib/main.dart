@@ -7,6 +7,7 @@ import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/users_list.dart';
 import 'package:flutter_application_5/pages/login_page.dart';
 import 'package:flutter_application_5/styles/app_colors.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(const MyApp());
