@@ -4,12 +4,15 @@ import 'package:flutter_application_5/styles/app_colors.dart';
 class AppTextField extends StatelessWidget {
   final String hint;
   final int maxLines;
-  const AppTextField({super.key, required this.hint, this.maxLines = 1});
+  final TextEditingController? controller;
+  // ignore: non_constant_identifier_names
+  const AppTextField({super.key, required this.hint, this.maxLines = 1, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       keyboardType: TextInputType.multiline,
+      controller: controller,
       minLines: 1,
       maxLines: maxLines,
       decoration: InputDecoration(

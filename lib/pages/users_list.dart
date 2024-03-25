@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_5/components/mainBottomBar.dart';
 import 'package:flutter_application_5/components/post_item.dart';
 import 'package:flutter_application_5/components/toolbar.dart';
+import 'package:flutter_application_5/configs/AppRoutes.dart';
 
 class PostsPage extends StatefulWidget {
   const PostsPage({super.key});
@@ -21,7 +22,9 @@ class _PostsPageState extends State<PostsPage> {
     return 
     Scaffold(
       appBar: Toolbar(title: "Home", actions:[
-        IconButton(onPressed: () {}, icon: Icon(Icons.location_city)
+        IconButton(onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.nearbyPage);
+        }, icon: Icon(Icons.location_city)
         )
       ]),
       body: ListView.separated(
