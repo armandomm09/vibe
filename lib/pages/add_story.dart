@@ -59,7 +59,7 @@ void _showMessage(PostState state) {
   TextEditingController emailController = TextEditingController();
 
     return Scaffold(
-      appBar: const Toolbar(title: "Cuenta tu historia "),
+      appBar: const Toolbar(titleWidget: "Cuenta tu historia "),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,

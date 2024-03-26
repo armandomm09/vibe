@@ -31,7 +31,7 @@ class FirebasePoster {
       stream: reference.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final clients = snapshot.data?.docs.reversed.toList();
+          final clients = snapshot.data?.docs.toList();
           return Expanded(
             child: ListView.builder(
               itemCount: clients!.length,

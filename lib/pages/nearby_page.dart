@@ -10,7 +10,7 @@ class NearbyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Toolbar(title: "Nearby page"),
+      appBar: const Toolbar(titleWidget: "Nearby page"),
       body: FlutterMap(
         options: const MapOptions(
           initialCenter:  LatLng(48.8584, 2.2945),

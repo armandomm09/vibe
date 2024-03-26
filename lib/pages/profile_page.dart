@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: Toolbar(title: "Profile", actions: [
+      appBar: Toolbar(titleWidget: "Profile", actions: [
         PopupMenuButton(onSelected: (value) {
           switch(value){
             case ProfileMenuState.EDIT:

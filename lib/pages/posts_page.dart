@@ -20,7 +20,7 @@ class _PostsPageState extends State<PostsPage> {
     userList();
     return 
     Scaffold(
-      appBar: Toolbar(title: "Home", actions:[
+      appBar: Toolbar(titleWidget: "Home", actions:[
         IconButton(onPressed: () {
           Navigator.pushNamed(context, AppRoutes.nearbyPage);
         }, icon: const Icon(Icons.location_city)

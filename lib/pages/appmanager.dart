@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/pages/add_story.dart';
+import 'package:flutter_application_5/pages/modify_story.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/posts_page.dart';
+import 'package:flutter_application_5/pages/search_stories.dart';
 import 'package:flutter_application_5/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
@@ -35,9 +37,9 @@ class _MainPageState extends State<MainPage> {
 
 final pages = [
   const PostsPage(),
-  const Center(child: Text("CHAT PAGE"),),
+  const SearchStories(),
   const AddPost(),
-  const Center(child: Text("LIKES PAGE"),),
+  const ModifyStory(),
   const ProfilePage()
 ];
 
