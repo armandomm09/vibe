@@ -10,9 +10,9 @@ class NearbyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Toolbar(title: "Nearby page"),
+      appBar: const Toolbar(title: "Nearby page"),
       body: FlutterMap(
-        options: MapOptions(
+        options: const MapOptions(
           initialCenter:  LatLng(48.8584, 2.2945),
           initialZoom: 10
         ), children: [
@@ -21,7 +21,7 @@ class NearbyPage extends StatelessWidget {
             userAgentPackageName: 'dev.fleaflet.flutter_map.example',
   // Plenty of other options available!
         ),
-        MarkerLayer(markers: [
+        const MarkerLayer(markers: [
           Marker(
             point: LatLng(48.8584, 2.2945), 
             child: Icon(Icons.location_pin, color: AppColors.extraTone,),)

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_5/components/mainBottomBar.dart';
 import 'package:flutter_application_5/pages/add_story.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
-import 'package:flutter_application_5/pages/users_list.dart';
+import 'package:flutter_application_5/pages/posts_page.dart';
 import 'package:flutter_application_5/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
@@ -35,11 +34,11 @@ class _MainPageState extends State<MainPage> {
 }
 
 final pages = [
-  PostsPage(),
-  Center(child: Text("CHAT PAGE"),),
-  AddPost(),
-  Center(child: Text("LIKES PAGE"),),
-  ProfilePage()
+  const PostsPage(),
+  const Center(child: Text("CHAT PAGE"),),
+  const AddPost(),
+  const Center(child: Text("LIKES PAGE"),),
+  const ProfilePage()
 ];
 
 enum NavigationBarState {
@@ -55,7 +54,7 @@ class MyBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 87,
-      margin: EdgeInsets.all(24),
+      margin: const EdgeInsets.all(24),
       child: Stack(
         children: [
           Positioned(
@@ -81,7 +80,7 @@ class MyBottomNavigation extends StatelessWidget {
                     icon: Icon(
                       currentValue == NavigationBarState.chat ? Icons.chat_bubble : Icons.chat_bubble_outline
                     ))),
-                  Spacer(),
+                  const Spacer(),
                   Expanded(child: IconButton(
                     onPressed: () {
                       onTap(NavigationBarState.like);
@@ -109,11 +108,11 @@ class MyBottomNavigation extends StatelessWidget {
               child: Container(
                 width: 64,
                 height: 64,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColors.extraTone,
                   shape: BoxShape.circle
                 ),
-                child: Icon(Icons.add, size: 40, weight: 100, color: Colors.black,),
+                child: const Icon(Icons.add, size: 40, weight: 100, color: Colors.black,),
               ),
             ),
           )

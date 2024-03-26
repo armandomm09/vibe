@@ -9,18 +9,18 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: [
           Row(
             children: [
               Image.asset("assets/images/user.png", width: 40, height: 40,),
-              SizedBox(width: 10,),
-              Text(user, style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationColor: Color.fromARGB(255, 0, 0, 0)),)
+              const SizedBox(width: 10,),
+              Text(user, style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationColor: Color.fromARGB(255, 0, 0, 0)),)
             ], 
           ),
           Image.asset("assets/images/artphoto.JPG", width: 300,),
-          Text("Hola, esto es una foto de muchos postes en el desierto pero esta nevado", style: AppText.subtitle2,)
+          const Text("Hola, esto es una foto de muchos postes en el desierto pero esta nevado", style: AppText.subtitle2,)
         ],
       ),
     );

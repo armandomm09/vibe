@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_5/components/mainBottomBar.dart';
 import 'package:flutter_application_5/components/post_item.dart';
 import 'package:flutter_application_5/components/toolbar.dart';
 import 'package:flutter_application_5/configs/AppRoutes.dart';
@@ -24,7 +23,7 @@ class _PostsPageState extends State<PostsPage> {
       appBar: Toolbar(title: "Home", actions:[
         IconButton(onPressed: () {
           Navigator.pushNamed(context, AppRoutes.nearbyPage);
-        }, icon: Icon(Icons.location_city)
+        }, icon: const Icon(Icons.location_city)
         )
       ]),
       body: ListView.separated(

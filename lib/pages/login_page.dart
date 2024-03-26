@@ -1,16 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/auths/google_auth.dart';
 import 'package:flutter_application_5/auths/reqres_auth.dart';
 import 'package:flutter_application_5/components/app_textfield.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter_application_5/pages/main_page.dart';
+import 'package:flutter_application_5/pages/appmanager.dart';
 
 
 class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   
 
@@ -21,15 +17,17 @@ class LoginPage extends StatelessWidget {
     final usernameController = TextEditingController();
     final passwordController = TextEditingController();
 
+    
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             child: Column(
               children: [
-                Spacer(),
+                const Spacer(),
                 const Text(
                   "Hello, welcome back",
                   style: TextStyle(
@@ -39,9 +37,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const Text("Login please"),
-                Spacer(),
+                const Spacer(),
                 AppTextField(hint: "Username", controller: usernameController),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AppTextField(hint: "Password", controller: passwordController),
                 Align(
                   alignment: Alignment.centerRight,
@@ -70,38 +68,38 @@ class LoginPage extends StatelessWidget {
                         // Si fue exitoso, navegar a la pantalla MainPage
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => MainPage(),
+                            builder: (context) => const MainPage(),
                           ),
                         );
                       } else if(success == LoginState.wrongInput){
                         // Si no fue exitoso, mostrar mensaje de error
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             backgroundColor: Colors.red,
                             content: Text('Incorrect username or password.'),
                           ),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Something went wrong, please try again.'),
                           ),
                         );
                       }
                     },
-                    child: Text("Log in"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       foregroundColor: Colors.black,
                     ),
+                    child: const Text("Log in"),
                   ),
                 ),
-                Spacer(),
-                Text(
+                const Spacer(),
+                const Text(
                   "Or login with:",
                   style: TextStyle(color: Colors.white),
                 ),
-                Spacer(),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () async {
                     LoginState success = await GoogleAuthService.signInWithGoogle();
@@ -111,20 +109,20 @@ class LoginPage extends StatelessWidget {
                         // Si fue exitoso, navegar a la pantalla MainPage
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => MainPage(),
+                            builder: (context) => const MainPage(),
                           ),
                         );
                       } else if(success == LoginState.wrongInput){
                         // Si no fue exitoso, mostrar mensaje de error
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             backgroundColor: Colors.red,
                             content: Text('Incorrect username or password.'),
                           ),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Something went wrong, please try again.'),
                           ),
                         );
@@ -135,41 +133,46 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset("assets/images/google.png", width: 30, height: 30),
-                      SizedBox(width: 10),
-                      Text("Login with google"),
+                      const SizedBox(width: 10),
+                      const Text("Login with google"),
                     ],
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 SizedBox(
                   height: 40,
                   width: 400,
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const MainPage(),
+                          ),
+                        );
                       print("Github pressed");
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset("assets/images/github.png", height: 30),
-                        SizedBox(width: 12),
-                        Text("Login with Github"),
+                        const SizedBox(width: 12),
+                        const Text("Login with Github"),
                       ],
                     ),
                   ),
                 ),
                 Row(
                   children: [
-                    Text("Don't have an account?", style: TextStyle(color: Colors.white)),
+                    const Text("Don't have an account?", style: TextStyle(color: Colors.white)),
                     TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(foregroundColor: Colors.amber),
-                      child: Text("Sign up", style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
+                      child: const Text("Sign up", style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
                     ),
                   ],
                 ),
-                AppTextField(hint: "Username2"), 
-                Spacer(),
+                const AppTextField(hint: "Username2"), 
+                const Spacer(),
               ],
             ),
           ),

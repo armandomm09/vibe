@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/auths/firebase_post.dart';
 import 'package:flutter_application_5/components/app_textfield.dart';
 import 'package:flutter_application_5/components/toolbar.dart';
-import 'package:flutter_application_5/components/user_avatar.dart';
 import 'package:flutter_application_5/styles/text_styles.dart';
 
 enum Gender{
@@ -13,13 +15,29 @@ enum Gender{
 
 
 class AddPost extends StatefulWidget {
-  const AddPost({Key? key}) : super(key: key);
+  const AddPost({super.key});
 
   @override
   _AddPostState createState() => _AddPostState();
 }
 
 class _AddPostState extends State<AddPost> {
+
+void _showMessage(PostState state) {
+  final messenger = ScaffoldMessenger.of(context);
+  final message = state == PostState.successful
+      ? 'Data posted successfully!'
+      : 'Failed to post data. Please try again.';
+  final snackBar = SnackBar(
+    content: Text(message),
+    duration: Duration(seconds: 2),
+    backgroundColor: state == PostState.successful ? Colors.green : Colors.red, // Color del SnackBar
+  );
+  messenger.showSnackBar(snackBar);
+}
+
+
+
   bool showPlayer = false;
   String? audioPath;
   late DateTime birthday;
@@ -34,80 +52,49 @@ class _AddPostState extends State<AddPost> {
 
   @override
   Widget build(BuildContext context) {
+
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
     return Scaffold(
-      appBar: Toolbar(title: "Cuenta tu historia "),
+      appBar: const Toolbar(title: "Cuenta tu historia "),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(24.0),
             child: Column(
               children: [
                 const SizedBox(height: 10),
-                const AppTextField(hint: "Nombre"),
+                AppTextField(hint: "Nombre", controller: nameController,),
                 const SizedBox(height: 20),
-                const AppTextField(hint: "Phone number"),
+                AppTextField(hint: "Phone number", controller: phoneNumberController,),
                 const SizedBox(height: 20),
-                const AppTextField(hint: "Location"),
+                AppTextField(hint: "Email", controller: emailController,),
                 const SizedBox(height: 20),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    
+                SizedBox(
+                  height: 40,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      PostState state = await FirebasePoster.doPostUserInfo(
+                          nameController.text,
+                          emailController.text,
+                          phoneNumberController.text);
+                      _showMessage(state);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      foregroundColor: Colors.black,
                     ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 5,),
-                      Text("Gender", style: AppText.header3,),
-                      Row(
-                        children: [
-                      Expanded(
-                        child: RadioListTile(
-                          contentPadding: EdgeInsets.zero,
-                          title: Text("Male", style: AppText.subtitle1,),
-                          value: Gender.male, 
-                          groupValue: currentGender, 
-                          onChanged: (value) {
-                            setState(() {
-                              currentGender = Gender.male;
-                            });
-                          },
-                          fillColor: MaterialStatePropertyAll(Colors.amber),),
-                      ),
-                      Expanded(
-                        child: RadioListTile(
-                          contentPadding: EdgeInsets.zero,
-                          title: Text("Female", style: AppText.subtitle1,),
-                          value: Gender.female, 
-                          groupValue: currentGender, 
-                          onChanged: (value) {
-                            setState(() {
-                              currentGender = Gender.female;
-                            });
-                          },
-                          fillColor: MaterialStatePropertyAll(Colors.amber),),
-                      ),
-                        
-                      Expanded(
-                        child: RadioListTile(
-                          contentPadding: EdgeInsets.all(0),
-                          title: Text("Other", style: AppText.subtitle1,),
-                          value: Gender.other, 
-                          groupValue: currentGender, 
-                          onChanged: (value) {
-                            setState(() {
-                              currentGender = Gender.other;
-                            });
-                          },
-                          fillColor: MaterialStatePropertyAll(Colors.amber),),
-                      ),
-                        ],
-                      ),
-                    ],
+                    child: const Text("Log in"),
                   ),
-                ),  
-                  AppTextField(hint: "Historia", maxLines: 20,),
-                  
+                ),
+                  const SizedBox(height: 20),
+                  FirebasePoster.getUserCollectionStream(),
+                  const SizedBox(height: 20),
+                  const AppTextField(hint: "Historia", maxLines: 20,),
               ],
             ),
           ),

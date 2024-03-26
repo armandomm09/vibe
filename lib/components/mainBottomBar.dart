@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
-import 'package:flutter_application_5/pages/users_list.dart';
-import 'package:flutter_application_5/pages/main_page.dart';
+import 'package:flutter_application_5/pages/posts_page.dart';
+import 'package:flutter_application_5/pages/appmanager.dart';
 
 class MainBottomBar extends StatefulWidget {
   const MainBottomBar({super.key});
@@ -49,11 +49,11 @@ class _MainBottomBarState extends State<MainBottomBar> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return PostsPage(); // Reemplaza con tu widget de la página "Home"
+        return const PostsPage(); // Reemplaza con tu widget de la página "Home"
       case 1:
-        return MainPage(); // Reemplaza con tu widget de la página "Mobile"
+        return const MainPage(); // Reemplaza con tu widget de la página "Mobile"
       case 2:
-        return ProfilePage(); // Reemplaza con tu widget de la página "Profile"
+        return const ProfilePage(); // Reemplaza con tu widget de la página "Profile"
       default:
         return Container(); // Página por defecto o error
     }

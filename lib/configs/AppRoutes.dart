@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/pages/edit_profile_page.dart';
 import 'package:flutter_application_5/pages/login_page.dart';
-import 'package:flutter_application_5/pages/main_page.dart';
+import 'package:flutter_application_5/pages/appmanager.dart';
 import 'package:flutter_application_5/pages/nearby_page.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
-import 'package:flutter_application_5/pages/users_list.dart';
+import 'package:flutter_application_5/pages/posts_page.dart';
 
 class AppRoutes{
 
@@ -19,12 +19,12 @@ class AppRoutes{
 
 
   static  Map<String, WidgetBuilder> map = {
-        postsPage:(context) =>  PostsPage(),
-        loginPage:(context) => LoginPage(),
-        mainPage:(context) => MainPage(),
-        profilePage:(context) => ProfilePage(),  
-        editProfilePage:(context) => EditProfilePage(),
-        nearbyPage:(context) => NearbyPage()
+        postsPage:(context) =>  const PostsPage(),
+        loginPage:(context) => const LoginPage(),
+        mainPage:(context) => const MainPage(),
+        profilePage:(context) => const ProfilePage(),  
+        editProfilePage:(context) => const EditProfilePage(),
+        nearbyPage:(context) => const NearbyPage()
       };
 
 }

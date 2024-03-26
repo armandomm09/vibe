@@ -13,7 +13,7 @@ enum Gender{
 
 
 class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({Key? key}) : super(key: key);
+  const EditProfilePage({super.key});
 
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
@@ -32,10 +32,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Toolbar(title: "Edit Profile"),
+      appBar: const Toolbar(title: "Edit Profile"),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
               Stack(
@@ -85,21 +85,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
               const SizedBox(height: 20),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(167, 125, 189, 242), 
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   
                   ),
                 child: Column(
                   children: [
-                    SizedBox(height: 5,),
-                    Text("Gender", style: AppText.header3,),
+                    const SizedBox(height: 5,),
+                    const Text("Gender", style: AppText.header3,),
                     Row(
                       children: [
                     Expanded(
                       child: RadioListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: Text("Male", style: AppText.subtitle1,),
+                        title: const Text("Male", style: AppText.subtitle1,),
                         value: Gender.male, 
                         groupValue: currentGender, 
                         onChanged: (value) {
@@ -107,12 +107,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             currentGender = Gender.male;
                           });
                         },
-                        fillColor: MaterialStatePropertyAll(Colors.amber),),
+                        fillColor: const MaterialStatePropertyAll(Colors.amber),),
                     ),
                     Expanded(
                       child: RadioListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: Text("Female", style: AppText.subtitle1,),
+                        title: const Text("Female", style: AppText.subtitle1,),
                         value: Gender.female, 
                         groupValue: currentGender, 
                         onChanged: (value) {
@@ -120,13 +120,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             currentGender = Gender.female;
                           });
                         },
-                        fillColor: MaterialStatePropertyAll(Colors.amber),),
+                        fillColor: const MaterialStatePropertyAll(Colors.amber),),
                     ),
                       
                     Expanded(
                       child: RadioListTile(
-                        contentPadding: EdgeInsets.all(0),
-                        title: Text("Other", style: AppText.subtitle1,),
+                        contentPadding: const EdgeInsets.all(0),
+                        title: const Text("Other", style: AppText.subtitle1,),
                         value: Gender.other, 
                         groupValue: currentGender, 
                         onChanged: (value) {
@@ -134,7 +134,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             currentGender = Gender.other;
                           });
                         },
-                        fillColor: MaterialStatePropertyAll(Colors.amber),),
+                        fillColor: const MaterialStatePropertyAll(Colors.amber),),
                     ),
                       ],
                     ),

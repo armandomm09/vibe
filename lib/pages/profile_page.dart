@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_5/components/mainBottomBar.dart';
 import 'package:flutter_application_5/components/toolbar.dart';
 import 'package:flutter_application_5/components/user_avatar.dart';
 import 'package:flutter_application_5/configs/AppRoutes.dart';
@@ -37,8 +36,8 @@ class _ProfilePageState extends State<ProfilePage> {
         iconColor: Colors.amber,
           itemBuilder: (context){
           return [
-            PopupMenuItem(child: Text("Edit"), value: ProfileMenuState.EDIT,),
-            PopupMenuItem(child: Text("Log out"), value: ProfileMenuState.LOG_OUT,),
+            const PopupMenuItem(value: ProfileMenuState.EDIT,child: Text("Edit"),),
+            const PopupMenuItem(value: ProfileMenuState.LOG_OUT,child: Text("Log out"),),
           ];}, 
           color: Colors.amber,)
       ],),
