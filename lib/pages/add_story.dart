@@ -38,7 +38,7 @@ void _showMessage(PostState state) {
 
 
 
-  bool showPlayer = false;
+  bool showPlayer = false;  
   String? audioPath;
   late DateTime birthday;
   var currentGender = Gender.none;

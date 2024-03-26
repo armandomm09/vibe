@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/pages/add_story.dart';
-import 'package:flutter_application_5/pages/modify_story.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/posts_page.dart';
 import 'package:flutter_application_5/pages/search_stories.dart';
@@ -39,7 +38,7 @@ final pages = [
   const PostsPage(),
   const SearchStories(),
   const AddPost(),
-  const ModifyStory(),
+  const Center(child: Text("LIKES PAGE"),),
   const ProfilePage()
 ];
 

@@ -19,7 +19,6 @@ class AppRoutes{
   static const editProfilePage = '/editProfile';
   static const nearbyPage = '/nearbyPage';
   static const addStoryPage ='/addStoryPage';
-  static const modifyStoryPage ='/modifyStoryPage'; 
 
 
 
@@ -31,7 +30,6 @@ class AppRoutes{
         editProfilePage:(context) => const EditProfilePage(),
         nearbyPage:(context) => const NearbyPage(),
         addStoryPage:(context) => const AddPost(),
-        modifyStoryPage:(context) => const ModifyStory(),
 
       };
 
