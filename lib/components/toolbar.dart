@@ -25,6 +25,14 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
       actions: actions,
       centerTitle: false,
       shadowColor: AppColors.mint,
+      leading: Switch(
+        activeColor: AppColors.mint,
+        inactiveTrackColor: AppColors.mint,
+        inactiveThumbColor: AppColors.persianGreen,
+        value: true, 
+        onChanged: (newValue) {
+          AppColors.setAppRedMode(newValue);
+        }),
     );
   }
 

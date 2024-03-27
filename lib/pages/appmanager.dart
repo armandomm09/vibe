@@ -3,6 +3,7 @@ import 'package:flutter_application_5/pages/add_story.dart';
 import 'package:flutter_application_5/pages/profile_page.dart';
 import 'package:flutter_application_5/pages/posts_page.dart';
 import 'package:flutter_application_5/pages/search_stories.dart';
+import 'package:flutter_application_5/pages/visualizer_3d.dart';
 import 'package:flutter_application_5/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
@@ -38,7 +39,7 @@ final pages = [
   const PostsPage(),
   const SearchStories(),
   const AddPost(),
-  const Center(child: Text("LIKES PAGE"),),
+  const RobotViewer(),
   const ProfilePage()
 ];
 
@@ -109,11 +110,11 @@ class MyBottomNavigation extends StatelessWidget {
               child: Container(
                 width: 64,
                 height: 64,
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   color: AppColors.extraTone,
                   shape: BoxShape.circle
                 ),
-                child: const Icon(Icons.add, size: 40, weight: 100, color: Colors.black,),
+                child: Icon(Icons.add, size: 40, weight: 100, color: AppColors.counterColor,),
               ),
             ),
           )

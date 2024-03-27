@@ -21,7 +21,7 @@ class NearbyPage extends StatelessWidget {
             userAgentPackageName: 'dev.fleaflet.flutter_map.example',
   // Plenty of other options available!
         ),
-        const MarkerLayer(markers: [
+         MarkerLayer(markers: [
           Marker(
             point: LatLng(48.8584, 2.2945), 
             child: Icon(Icons.location_pin, color: AppColors.extraTone,),)
